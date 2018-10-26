@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlXml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Byter.cs" />
+    <Compile Include="ClassTree.cs" />
     <Compile Include="DataTypeBase.cs" />
     <Compile Include="Dex.cs" />
     <Compile Include="Form1.cs">

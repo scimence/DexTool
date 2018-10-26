@@ -37,18 +37,19 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dEXStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dEXExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -136,14 +137,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "16进制数据解析";
             // 
-            // label2
+            // checkBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 24);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "16进制\r\n数据：";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(196, 297);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(48, 16);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "转义";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox4
             // 
@@ -154,6 +156,15 @@
             this.textBox4.Size = new System.Drawing.Size(243, 216);
             this.textBox4.TabIndex = 8;
             this.textBox4.DoubleClick += new System.EventHandler(this.textBox_DoubleClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 24);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "16进制\r\n数据：";
             // 
             // groupBox3
             // 
@@ -170,48 +181,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "16进制数据读取";
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(20, 96);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox5.Size = new System.Drawing.Size(243, 216);
-            this.textBox5.TabIndex = 8;
-            this.textBox5.DoubleClick += new System.EventHandler(this.textBox_DoubleClick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "起始位置：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "byte大小:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(76, 32);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(138, 21);
-            this.textBox6.TabIndex = 11;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(74, 64);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(140, 21);
-            this.textBox7.TabIndex = 12;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(221, 64);
@@ -222,29 +191,69 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // checkBox1
+            // textBox7
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(196, 297);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 16);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "转义";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.textBox7.Location = new System.Drawing.Point(74, 64);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(140, 21);
+            this.textBox7.TabIndex = 12;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(76, 32);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(138, 21);
+            this.textBox6.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "byte大小:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "起始位置：";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(20, 96);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox5.Size = new System.Drawing.Size(243, 216);
+            this.textBox5.TabIndex = 8;
+            this.textBox5.DoubleClick += new System.EventHandler(this.textBox_DoubleClick);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dEXStringsToolStripMenuItem});
+            this.dEXStringsToolStripMenuItem,
+            this.dEXExplorerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(163, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(172, 70);
             // 
             // dEXStringsToolStripMenuItem
             // 
             this.dEXStringsToolStripMenuItem.Name = "dEXStringsToolStripMenuItem";
-            this.dEXStringsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.dEXStringsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.dEXStringsToolStripMenuItem.Text = "DEX -> Strings";
             this.dEXStringsToolStripMenuItem.Click += new System.EventHandler(this.dEXStringsToolStripMenuItem_Click);
+            // 
+            // dEXExplorerToolStripMenuItem
+            // 
+            this.dEXExplorerToolStripMenuItem.Name = "dEXExplorerToolStripMenuItem";
+            this.dEXExplorerToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.dEXExplorerToolStripMenuItem.Text = "DEX -> Explorer";
+            this.dEXExplorerToolStripMenuItem.Click += new System.EventHandler(this.dEXExplorerToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -293,6 +302,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dEXStringsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dEXExplorerToolStripMenuItem;
     }
 }
 

@@ -109,19 +109,37 @@ namespace DexTool
         /// </summary>
         private void LoadStringIds()
         {
-            long off = GetField_Long("string_ids_off");
-            long count = GetField_Long("string_ids_size");
+            long off = GetField_Long("string_ids_off");     // string_ids信息的起始地址
+            long count = GetField_Long("string_ids_size");  // string_id 数目
 
             for (int i = 0; i < count; i++)
             {
-                byte[] data = GetBytes(off + i * 4, 4);
+                byte[] data = GetBytes(off + i * 4, 4);     // 获取对应string的偏移地址
                 long StringIndex = Byter.To_Long(data);
 
-                string str = GetString(StringIndex + 1);
+                string str = GetString(StringIndex + 1);    // 从string对应的偏移地址开始读取字符串
                 string_ids.Add(str);
             }
         }
 
+        /// <summary>
+        /// 获取类文件信息
+        /// </summary>
+        /// <returns></returns>
+        public List<string> getClasses()
+        {
+            List<string> classes = new List<string>();
+            foreach (string Str0 in string_ids)
+            {
+                string Str = Str0.Trim();
+                if(Str.StartsWith("L") && Str.EndsWith(";"))
+                {
+                    classes.Add(Str);
+                }
+            }
+
+            return classes;
+        }
 
         public string Test(string filedName)
         {

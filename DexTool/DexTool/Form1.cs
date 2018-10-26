@@ -64,5 +64,15 @@ namespace DexTool
                 form.Show();
             }
         }
+
+        /// <summary>
+        /// 以文件目录树的形式展示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dEXExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
