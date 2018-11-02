@@ -89,7 +89,7 @@ namespace DexTool
         public long header_size = 0;// header大小
         public string endian_tag;
 
-        public List<string> string_ids = new List<string>();
+        public List<string> stringList = new List<string>();
 
         
         private void LoadFieldInfos()
@@ -105,7 +105,9 @@ namespace DexTool
         }
 
         /// <summary>
-        /// 载入所有StringId数据
+        /// 载入所有StringId数据。
+        /// string_ids_off指向字符串索引信息表起始地址，每个索引项4个字节;
+        /// 索引项中存储字符串的起始地址,直接读取
         /// </summary>
         private void LoadStringIds()
         {
@@ -118,27 +120,37 @@ namespace DexTool
                 long StringIndex = Byter.To_Long(data);
 
                 string str = GetString(StringIndex + 1);    // 从string对应的偏移地址开始读取字符串
-                string_ids.Add(str);
+                stringList.Add(str);
             }
         }
 
         /// <summary>
-        /// 获取类文件信息
+        /// 获取类路径信息
         /// </summary>
         /// <returns></returns>
         public List<string> getClasses()
         {
             List<string> classes = new List<string>();
-            foreach (string Str0 in string_ids)
+            foreach (string Str0 in stringList)
             {
                 string Str = Str0.Trim();
                 if(Str.StartsWith("L") && Str.EndsWith(";"))
                 {
+                    Str = Str.Substring(1, Str.Length - 2);
                     classes.Add(Str);
                 }
             }
 
             return classes;
+        }
+
+        /// <summary>
+        /// 获取Dex文件中类路径树信息
+        /// </summary>
+        public ClassTree getClassTree()
+        {
+            List<string> Classes = getClasses();
+            return new ClassTree(Classes, "class.dex");
         }
 
         public string Test(string filedName)

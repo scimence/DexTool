@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Byter.cs" />
+    <Compile Include="ClassesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassesForm.Designer.cs">
+      <DependentUpon>ClassesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClassTree.cs" />
     <Compile Include="DataTypeBase.cs" />
     <Compile Include="Dex.cs" />
@@ -64,6 +70,9 @@
       <DependentUpon>StringForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StringIdsItem.cs" />
+    <EmbeddedResource Include="ClassesForm.resx">
+      <DependentUpon>ClassesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="StringForm.resx">
       <DependentUpon>StringForm.cs</DependentUpon>
@@ -88,6 +98,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

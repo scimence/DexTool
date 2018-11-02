@@ -58,9 +58,9 @@ namespace DexTool
 
         private void dEXStringsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dex.string_ids.Count > 0)
+            if (dex.stringList.Count > 0)
             {
-                StringForm form = new StringForm(dex.string_ids.ToArray());
+                StringForm form = new StringForm(dex.stringList.ToArray());
                 form.Show();
             }
         }
@@ -72,7 +72,10 @@ namespace DexTool
         /// <param name="e"></param>
         private void dEXExplorerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
+            List<string> classes = dex.getClasses();
+            if (classes.Count > 0)
+                new ClassesForm(classes).Show();
         }
     }
 }
