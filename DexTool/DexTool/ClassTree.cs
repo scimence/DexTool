@@ -33,7 +33,6 @@ namespace DexTool
             this.isDir = isDir;
         }
 
-
         /// <summary>
         /// 解析classStr中的所有文件路径信息为Tree数据
         /// </summary>
@@ -54,8 +53,8 @@ namespace DexTool
         /// </summary>
         public string ToString()
         {
-            if (parent == null) return Name;
-            else return parent + "/" + Name;
+            if (parent == null || parent.Name.ToLower().EndsWith(".dex")) return Name;
+            else return parent.ToString() + "/" + Name;
         }
 
         /// <summary>
@@ -183,7 +182,14 @@ namespace DexTool
             TreeNode node = new TreeNode();
             node.Name = this.Name;
             node.Text = Name;
-            node.ImageIndex = isDir ? 0 : 1;
+            node.Tag = this.ToString();
+
+            // 设置图标
+            if (parent == null)
+                node.ImageIndex = 2;
+            else 
+                node.ImageIndex = isDir ? 0 : 1;
+            node.SelectedImageIndex = node.ImageIndex;
 
             foreach (string key in childs.Keys)
             {
@@ -208,6 +214,7 @@ namespace DexTool
 
             imageList.Images.Add(Resources._3);     // 添加文件夹图标
             imageList.Images.Add(Resources._70);    // 添加文件图标
+            imageList.Images.Add(Resources.java);   // 添加文件图标
 
             return imageList;
         }
@@ -218,11 +225,16 @@ namespace DexTool
         /// <param name="tree"></param>
         public void ShowIn(TreeView tree)
         {
-            if (tree.ImageList == null) tree.ImageList = getImageList();    // 设置图标
+            if (tree.ImageList == null)
+            {
+                tree.ImageList = getImageList();    // 设置图标
+                tree.CheckBoxes = true;             // 显示复选框
+                tree.ShowLines = true;              // 显示连接线
 
-            //tree.ImageList = iconData.getImageList();   // 更新图标信息
+                tree.AfterCheck += new TreeViewEventHandler(treeView_AfterCheck);
+            }
+
             TreeNode thisNode = ToTreeNode();       // 生成TreeNode
-
             foreach(TreeNode node in tree.Nodes)    // 遍历所有节点
             {
                 if (node.Text.Equals(this.Name))
@@ -232,6 +244,22 @@ namespace DexTool
                 }
             }
             tree.Nodes.Add(thisNode);
+        }
+
+        /// <summary>
+        /// 全选/全不选 当前节点和子节点
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeView_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            TreeNode node = e.Node;
+            bool checkState = node.Checked;
+
+            foreach (TreeNode child in node.Nodes)
+            {
+                child.Checked = checkState;
+            }
         }
 
     }
